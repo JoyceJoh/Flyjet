@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.ibb.co/5g58d5Wb/0b6c03421c43dd37b6192c4b946e4b84.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Align items vertically */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #000;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .loading-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .loading {
+            width: 100%;
+            height: auto;
+            max-width: 200px;
+        }
+
+        .background-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-image: url('https://100hp.app/lucky/assets/media/3caa6b7c2d37c3ae0bd198c86b81bb13.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .promo-link {
+    color: white;
+    font-size: 32px; /* Increased font size */
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+
+    /* Move to the bottom of the page */
+    position: absolute;
+    bottom: 40px; /* Adjust distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+}
+
+        .promo-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-top"></div> <!-- Background image at the top -->
+
+    <div class="container">
+        <div class="box" style="background-image: url('https://i.ibb.co/QF1xxNhB/images-77.jpg');" onclick="showLoading('userid.html')"></div>
+
+        <!-- New Promo Link -->
+        <span class="promo-link" onclick="openInChrome('https://t.me/xKingHack')">@XKING...👑... LUCKY...JET...HACK</span>
+    </div>
+
+    <!-- Loading container -->
+    <div class="loading-container" id="loadingContainer">
+        <img class="loading" src="https://i.gifer.com/ZZ5H.gif" alt="Loading...">
+    </div>
+
+    <script>
+        function showLoading(targetPage) {
+            document.getElementById('loadingContainer').style.display = 'block';
+
+            setTimeout(function() {
+                document.getElementById('loadingContainer').style.display = 'none';
+                window.location.href = targetPage;
+            }, 5000); // 5000 milliseconds = 5 seconds
+        }
+
+        function openInChrome(url) {
+            if (navigator.userAgent.match(/Android/i)) {
+                window.location.href = 'intent://' + url.replace(/^https?:\/\//, '') + '#Intent;scheme=https;package=com.android.chrome;end;';
+            } else {
+                window.location.href = url;
+            }
+        }
+    </script>
+</body>
+</html>

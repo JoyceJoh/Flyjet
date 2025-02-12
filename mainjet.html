@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Lucky Jet Predictor</title>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  /* Dim effect */
+    url('https://i.ibb.co/5g58d5Wb/0b6c03421c43dd37b6192c4b946e4b84.webp'); /* Background image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.circle-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.background-circle {
+  fill: none;
+  stroke: white;
+  stroke-width: 13;
+}
+
+.rotating-circle {
+  animation: rotate 2s linear infinite;
+  fill: none;
+  stroke: red;
+  stroke-width: 13;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 0;
+}
+.logo {
+      position: absolute;
+      top: 20px; /* Adjust as needed */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 45px;
+    }
+    
+    /* Animation de la photo */
+    .photo-container {
+      position: fixed;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: vaEtVient 2s infinite alternate;
+    }
+
+    .photo {
+      width: 80px;
+      height: 80px;
+    }
+
+    .gif {
+      position: absolute;
+      bottom: -30px;
+      left: -43px;
+      width: 50px;
+      height: 60px;
+      transform: rotate(240deg); /* Rotation pour faire face en bas à gauche */
+    }
+
+@keyframes rotate {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -440;
+  }
+}
+
+.coefficient-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4.5em;
+  font-weight: bold;
+  color: white;
+}
+
+.fetch-button {
+  padding: 15px 50px;  /* More horizontal padding for a sleek rectangle */
+  background: linear-gradient(145deg, #8a2be2, #7a1dbf);  /* Gradient for a sharp look */
+  border: 2px solid #ffffff;  /* Clean white border for definition */
+  border-radius: 5px;  /* Slightly rounded corners for a sharp yet clean look */
+  color: white;
+  font-size: 1.8em;  /* Slightly smaller font size for better readability */
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase and Lowercase;  /* Make text uppercase for a bolder look */
+  cursor: pointer;
+  transition: all 0.3s ease;  /* Smooth transition for hover effect */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);  /* Sharper shadow for depth */
+  
+  position: fixed; 
+  bottom: 20px;  /* Distance from the bottom */
+  left: 50%; 
+  transform: translateX(-50%);  /* Center horizontally */
+}
+
+.fetch-button:hover {
+  background: linear-gradient(145deg, #7a1dbf, #8a2be2);  /* Reverse the gradient on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);  /* Slightly deeper shadow on hover */
+}
+
+.fetch-button:active {
+  transform: translateY(3px);  /* Button press effect */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);  /* Shadow reduction on active */
+}
+
+  </style>
+</head>
+<body>
+    <img src="https://100hp.app/lucky/assets/media/3caa6b7c2d37c3ae0bd198c86b81bb13.svg" class="logo">
+    <div class="photo-container">
+    <img src="https://100hp.app/lucky/assets/media/7a702f0aec3a535e1ba54a71c31bdfd1.webp" class="photo">
+    <img src="https://100hp.app/lucky/assets/media/314943e8bfa7203475c32ae70f70dd8a.svg" class="gif">
+  </div>
+  <div class="circle-container">
+    <svg width="300" height="300">
+      <circle cx="150" cy="150" r="100" class="background-circle"></circle>
+      <circle cx="150" cy="150" r="100" class="rotating-circle"></circle>
+    </svg>
+    <div class="coefficient-text" id="coefficient-display">--</div>
+  </div>  <!-- Predict Button Opens URL Instead of Predicting --><button class="fetch-button" onclick="openWebsite()">Contact (@xKingHack)</button>
+
+  <script>
+  // Open Telegram link
+  function openWebsite() {
+    window.open('https://t.me/xkinghackHi1xbet', '_blank');
+  }
+
+  // Dynamic Color Based on Value
+  const getColor = (value) => {
+    const blue = "#3498db", purple = "#944ef5", gold = "#FFD700";
+    return value < 3.00 ? blue : value < 7.00 ? purple : gold;
+  };
+
+  // Calculate Prediction Based on Received Value
+  const calculateCrashPoint = (latestValue) => {
+    let prediction;
+
+    if (latestValue < 2.00) {
+      // For lower values, predict between 1.00 and 1.99
+      prediction = (Math.random() * 0.99 + 1.00).toFixed(2);
+    } 
+    else if (latestValue >= 2.00 && latestValue <= 5.00) {
+      // NEW LOGIC: For values between 2.00 and 5.00, predict between 1.20 and 3.00
+      prediction = (Math.random() * 1.80 + 1.20).toFixed(2);
+    } 
+    else if (latestValue > 5.00 && latestValue <= 10.00) {
+      // For values between 5.00 and 10.00, predict between 1.50 and 2.99
+      prediction = (Math.random() * 1.49 + 1.50).toFixed(2);
+    } 
+    else if (latestValue > 10.00) {
+      // For values above 10.00, predict between 1.01 and 1.50
+      prediction = (Math.random() * 0.49 + 1.01).toFixed(2);
+    } 
+    else {
+      // Default case if value doesn't fall within any condition
+      prediction = (Math.random() * 9.00 + 1.00).toFixed(2);
+    }
+
+    return prediction;
+  };
+
+  // Show Outcome Based on API Data
+  const showOutcome = (prediction) => {
+    const coefficientDisplay = document.getElementById("coefficient-display");
+    coefficientDisplay.textContent = prediction;
+    coefficientDisplay.style.color = getColor(prediction);
+  };
+
+  let lastFetchedValue = null; // To track the last received value
+
+  // Fetch Data and Predict
+  const fetchAndPredict = () => {
+    const url = 'https://crash-gateway-cc-cr.gamedev-tech.cc/history?id_n=1play_luckyjet&id_i=1&round_id=b57214b9-9a16-46e5-ba9d-31aea0b6ea38';
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const latestValue = parseFloat(data[0].top_coefficient); // Get the latest value
+
+        // Update only if the new value is different from the last one
+        if (latestValue !== lastFetchedValue) {
+          const prediction = calculateCrashPoint(latestValue);
+          showOutcome(prediction);
+          lastFetchedValue = latestValue; // Update the last fetched value
+        }
+      })
+      .catch(() => showError("Error"));
+  };
+
+  // Display Error Messages
+  const showError = (message) => {
+    const coefficientDisplay = document.getElementById("coefficient-display");
+    coefficientDisplay.textContent = message;
+    coefficientDisplay.style.color = message === "Error" ? "red" : "white";
+  };
+
+  // Start the prediction cycle
+  const startPredictionCycle = () => {
+    fetchAndPredict(); // Fetch immediately on load
+    setInterval(fetchAndPredict, 3000); // Fetch every 3 seconds
+  };
+
+  // Start fetching and predicting
+  startPredictionCycle();
+</script>
+  </body>
+</html>   

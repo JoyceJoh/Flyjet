@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.ibb.co/5g58d5Wb/0b6c03421c43dd37b6192c4b946e4b84.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .background-top {
+            position: absolute;
+            top: -0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 50px; /* Adjust height for a better fit */
+            background-image: url('https://100hp.app/lucky/assets/media/3caa6b7c2d37c3ae0bd198c86b81bb13.svg'); /* Replace with your background URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .container img {
+            width: 100px; /* Adjust width as needed */
+            margin-bottom: 20px;
+        }
+
+        .board-name {
+            font-family: Arial, sans-serif; /* Normal font style */
+            font-size: 36px;
+            color: #944ef5;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: moveUpDown 2s ease-in-out infinite; /* Animation applied */
+        }
+
+        @keyframes moveUpDown {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); /* Move up by 10px */
+            }
+            100% {
+                transform: translateY(0); /* Move back to original position */
+            }
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"],
+        .btn {
+            width: calc(50% - 5px);
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn.contact-us {
+            background-color: #944ef5;
+            color: white;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .btn.join-channel {
+            background-color: #944ef5;
+            color: white;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        input[type="submit"]:hover,
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading img {
+            width: 150px; 
+            animation: flying-jet 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes flying-jet {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-top"></div> <!-- Background image at the top -->
+
+    <div class="container">
+        <!-- Image at the top of the login square -->
+        <img src="https://i.ibb.co/Vc7KX0D6/1001199884-removebg-preview.png" alt="Top Image">
+        <h1 class="board-name">XKING 👑 LUCKY JET HACK </h1>
+        <form action="#" method="POST" id="loginForm" onsubmit="event.preventDefault(); showLoading();">
+            <label for="activationCode">Enter Activation Code:</label><br>
+            <input type="text" id="activationCode" name="activationCode" required><br><br>
+            <input type="submit" value="Submit">
+            <p class="error-message" id="errorMessage">Incorrect activation code 😢</p>
+        </form>
+    </div>
+
+    <button class="btn contact-us" onclick="openInChrome('https://t.me/xKingHack');">Contact Us</button>
+    <button class="btn join-channel" onclick="openInChrome('https://t.me/xkinghackHi1xbet');">Join Channel</button>
+
+    <div class="loading" id="loading">
+        <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading">
+    </div>
+
+    <script>
+        function openInChrome(url) {
+            if (navigator.userAgent.match(/Android/i)) {
+                window.location.href = 'intent://' + url.replace(/^https?:\/\//, '') + '#Intent;scheme=https;package=com.android.chrome;end;';
+            } else {
+                window.location.href = url;
+            }
+        }
+
+        function showLoading() {
+            var activationCode = document.getElementById('activationCode').value;
+            var loading = document.getElementById('loading');
+            var errorMessage = document.getElementById('errorMessage');
+
+            loading.style.display = 'flex';
+            errorMessage.style.display = 'none';
+
+            setTimeout(function() {
+                loading.style.display = 'none';
+                if (activationCode === 'XLUCKYJET') {
+                    window.location.href = 'code2.html'; // Replace with the actual next page URL
+                } else {
+                    errorMessage.style.display = 'block';
+                }
+            }, 5000); // 5 seconds delay for demonstration
+        }
+    </script>
+</body>
+</html>
