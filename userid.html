@@ -226,8 +226,8 @@
             // Hide the loading image after validation
             loading.style.display = 'none';
 
-            // Validate if input is exactly 8 digits
-            if (/^\d{8}$/.test(idInput)) {
+            // Validate if input is exactly 9 digits
+            if (/^\d{8,9}$/.test(idInput)) {
                 if (successSound) {
                     successSound.play().catch(error => console.error('Error playing success sound:', error));
                 }
